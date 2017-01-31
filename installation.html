@@ -1,0 +1,596 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Jalendar2 - Premium Calendar Tool</title> 
+
+<link rel="stylesheet" href="style/bootstrap.min.css">
+<link rel="stylesheet" href="style/documentation.css">
+
+<!-- Jalendar files -->
+<link rel="stylesheet" href="jalendar/style/jalendar.css" type="text/css" />
+<script type="text/javascript" src="jalendar/js/jquery-1.11.3.min.js"></script><!--jQuery-->
+<script type="text/javascript" src="jalendar/js/jalendar.min.js"></script>
+<!-- Jalendar files #end -->
+
+<link rel="stylesheet" href="style/default.min.css" media="screen" type="text/css">
+<script src="js/highlight.pack.js"></script>
+<script src="js/documentation.js"></script>
+
+<script type="text/javascript">
+$(function () {
+    $('#yourId').jalendar({
+        color: '#577e9a', // Unlimited Colors
+        color2: '#57c8bf', // Unlimited Colors
+        lang: 'TR'
+    });
+
+    $('#yourIdInput').jalendar({
+        color: '#577e9a', // Unlimited Colors
+        color2: '#57c8bf', // Unlimited Colors
+        lang: 'TR'
+    });
+
+    $('#yourId2').jalendar({
+        color: '#fff',
+        type: 'linker',
+        customUrl: 'http://yourcustomurl.com/yourcustomurl?var=',
+        dateType: 'mm-dd-yyyy',
+        titleColor: '#333',
+        weekColor: '#EA5C49',
+        todayColor: '#EA5C49'
+    });
+
+    $('#yourId3').jalendar({
+        type: 'selector',
+        dateType: 'yyyy-mm-dd',
+        dayWithZero: false,
+    });
+
+    $('#yourId3Input').jalendar({
+        color: '#4E99CE',
+        type: 'selector',
+        dateType: 'yyyy-mm-dd',
+        lang: 'TR',
+        dayWithZero: false,
+    });    
+
+    $('#yourId4').jalendar({
+        color: '#37C4A7',
+        type: 'range',
+        dayWithZero: false,
+        selectingAfterToday: true,
+        lang: 'TR'
+    });
+
+	$('#yourId4Input').jalendar({
+        color: '#4ECE8C',
+        type: 'range',
+        dayWithZero: false,
+        lang: 'TR'
+    });    
+
+});
+</script>
+</head>
+<body>
+
+	<div id="fb-root"></div>
+	<script>(function(d, s, id) {
+	  var js, fjs = d.getElementsByTagName(s)[0];
+	  if (d.getElementById(id)) return;
+	  js = d.createElement(s); js.id = id;
+	  js.src = "//connect.facebook.net/tr_TR/sdk.js#xfbml=1&version=v2.4";
+	  fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));</script>
+
+	<div class="container-fluid">
+		
+		<div class="row header header-mini">
+
+	        <ul class="nav">
+	            <li><a href="index.html">Getting Started</a></li>    
+	            <li><a href="#" class="selected">Installation &amp; Documentation</a></li>  
+	            <li><a href="changelog.html">Change-log (v1.5)</a></li>      
+	            <li><a href="http://codecanyon.net/item/jalendar2-calendar-pack-event-range-and-more/12662442?ref=bqra">Purchase and Download</a></li>  
+	            <li><a href="mailto:bora_dan@hotmail.com?Subject=Jalendar2 Support">Support</a></li>   
+	        </ul>
+
+	        <div class="container">
+
+	            <div class="logo text-center"><img src="img/logo.png" alt="" /></div>
+	            <p class="mini-desc text-center">Installation</p>
+
+	        </div>
+	    </div>
+
+	    
+    	<div class="container white">
+
+    		<div class="row">
+    			<div class="col-xs-12">
+    				<h1>Download Jquery</h1>
+    				<p>
+    					Jalendar has a few easy way to quickly get started. Firstly you can download jquery 1.10 or newer version from <a href="http://jquery.com" target="_blank">jquery</a> website. And add to jquery file path to your between &lt;head&gt; tag.
+    					<br /><br />
+    					After that, you must add jalendar plugin files and folders —<b>/js/ and /style/</b>— to your project and add to that lines you &lt;head&gt; tag again. Between your &lt;head&gt; tag should see like this after these;
+    				</p>
+
+    				<pre class="html">
+    					<code>&lt;head&gt;
+	...
+	&lt;link rel="stylesheet" href="jalendar/style/jalendar.css" type="text/css" /&gt;
+	&lt;script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"&gt;&lt;/script&gt;&lt;!--jQuery--&gt;
+	&lt;script type="text/javascript" src="jalendar/js/jalendar.js"&gt;&lt;/script&gt;
+	...
+&lt;/head&gt;</code>
+</pre>
+
+
+					After these steps, your jalendar plugin is ready. Let's see Jalendar options. 
+					<hr />
+					<br />
+					<h1>Running plugin</h1>
+					Let's we add javascript function in your .js file for running Jalendar plugin. Id names should be same.
+					<br />
+					This is the Jalendar Event option. It is default option. You can change that with "type:" parameter from plugin. More info is in the List of properties section.
+					<br /><br />
+
+					<div class="row">
+
+						<div class="col-sm-6">
+							<pre class="js">
+                        <code>$('#yourId').jalendar();</code>
+</pre>
+							Basicly you should create a div in your html where you want, add id what you want and add class that named <b>jalendar</b>. This seems like this;
+							<br /><br /><br />
+							<pre class="html">
+		                        <code>&lt;div id="yourId" class="jalendar"&gt;&lt;/div&gt;</code>
+		</pre>
+
+							<script>$(function(){ $('#demo').jalendar(); });</script>
+							<div id="demo" class="jalendar" style="display: inline-block;"></div>
+						</div>
+						<div class="col-sm-6">
+							<pre class="js">
+                        		<code>$('#yourId').jalendar({type: 'selector'});</code>
+</pre>
+							
+							If you want to use jalendar with an input you should create a div and define class <b>jalendar-input</b>. Then put your <b>input type="text"</b> in <b>.jalendar-input</b> div. And then create a div that class name <b>.jalendar</b> and define your id next to input. This seems like this;
+							<pre class="html">
+		                        <code>&lt;div class="jalendar-input"&gt;
+	&lt;input type="text" readonly /&gt;
+	&lt;div id="yourDemoInput" class="jalendar"&gt;&lt;/div&gt;
+&lt;/div&gt;</code>
+</pre>
+
+							<script>$(function(){ $('#yourDemoInput').jalendar({ type: 'selector'} ); });</script>
+							<div class="jalendar-input">
+                    			<input type="text" placeholder="Select Date" readonly />
+                    			<div id="yourDemoInput" class="jalendar"></div>
+                    		</div>
+
+						</div>
+
+					</div>
+					<hr />
+					<br />
+					<h1>List of properties</h1>
+
+					<pre>
+						<code>
+customDay:	// You can define date what you want. Calendar will open with this day 
+		// (Ex: 31/10/1987) [Default: Today]
+
+
+color: 		// You can define unlimited color code
+
+
+color2: 	// You can define unlimited color code
+
+
+dayWithZero:    // You can use days without zero (Default: true)
+
+
+monthWithZero:  // You can use months without zero (Default: true)
+
+
+done:		// This is the callback function. You can run any function when your date selected 
+		// (Ex: function() { } )
+		// (Info: $('#your-id input.data1').val() is selected day data1, 
+		//        and for 'type: range' your selected day data2 is $('#your-id input.data2').val() )
+		// [Default: null]
+
+
+lang: 		// Supports 13 languages. 
+		// (Ex: "EN", "TR", "ES", "DE", "FR", "IT", "FIL", "RU", "NL", "ZH", "HI", "PT", "PL") 
+		// [Default: "EN"]
+		// (Info: English, Türkçe, Espanol, Deutsch, 
+		// French, Italian, Filipino, Russian, 
+		// Dutch, Chinese, Hindi, Porteguese, Polish)
+
+
+type: 		// There are 4 different option. 
+		// (Ex: "event", "linker", "selector", "range") [Default: event]
+
+
+customUrl:	// You can define your link on each date 
+		// (Ex: "http://yoururl.com/yourpath=") [Available with type: "linker"]
+
+
+sundayStart:    // You can change week start day for Sunday or Monday
+		// [Default: false]
+
+
+dateType:	// You can change date format. 
+		// (Ex: "yyyy-mm-dd", "dd-mm-yyyy", "mm-dd-yyyy", "yyyy-dd-mm") [Default: dd-mm-yyyy]
+
+
+selectingBeforeToday:	// You can disable selecting and clicking to day which after today
+                        // (Ex: true) [Default: false]
+
+
+selectingAfterToday:    // You can disable selecting and clicking to day which before today
+                        // (Ex: true) [Default: false]
+
+
+dayColor:	// Day colors have unlimited option
+
+
+titleColor:	// Title color have unlimited option
+
+
+weekColor: 	// Week names colors have unlimited option
+
+
+todayColor: 	// Today color have unlimited option
+
+</code>
+					</pre>
+
+					<p>
+						You can define these properties to your jalendar function in javascript. For example; 
+					</p>
+
+					<pre class="js">
+                                    <code>$('#yourId').jalendar({
+    color: '#577e9a', // Unlimited
+    color2: '#57c8bf', // Unlimited
+    lang: 'TR'
+});</code>
+</pre>
+
+<hr />
+<br />
+
+<h1>HTML properties for Events</h1>
+<pre class="html">
+<code>
+&lt;div id="yourId" class="jalendar"&gt;
+    &lt;div class="added-event" 
+    	data-link="http://pikselmatik.com" 
+    	data-date="19-11-2015" 
+    	data-title="WWDC 13 on San Francisco, LA"&gt;
+    &lt;/div&gt;
+    ...
+&lt;/div&gt;
+</code>
+</pre>
+
+
+<hr />
+<br />
+<h1>CSS</h1>
+You can change width property with:
+<pre class="css">
+<code>
+.jalendar {
+    width: 320px !important;
+}                                    	
+</code>
+</pre>
+
+
+					<hr />
+					<br />
+					<h1>Examples</h1>
+					
+					<div class="row demos detail">
+
+				        <div class="see-demos">See the Demos &nbsp; <i class="fa fa-caret-down"></i></div>
+
+				        <div class="tab" data-name="a">
+				            <a href="javascript:;" class="selected">Jalendar <small>Event</small></a>
+				            <a href="javascript:;">Jalendar <small>Linker</small></a>
+				            <a href="javascript:;">Jalendar <small>Selector</small></a>
+				            <a href="javascript:;">Jalendar <small>Range</small></a>
+				        </div>
+
+				        <div class="tab-container" data-name="a">
+				            
+				            <div class="tab-content selected">
+
+				                    <div class="container">
+
+				                        <div class="row">
+				                            <div class="col-sm-8">
+
+				                                <h1>Jalendar <small>Event</small></h1>
+
+				                                <pre class="html">
+				                                    <code>&lt;div id="yourId" class="jalendar"&gt;
+    &lt;div class="added-event" data-link="http://google.com" data-date="19-9-2015" data-title="WWDC 13 on San Francisco, LA"&gt;&lt;/div&gt;
+    ...
+    &lt;div class="added-event" data-date="1-10-2015" data-title="Tarkan İstanbul Concert on Harbiye Açık Hava Tiyatrosu"&gt;&lt;/div&gt;
+&lt;/div&gt;</code>
+</pre>
+
+				                                <pre class="js">
+				                                    <code>$('#yourId').jalendar({
+    color: '#577e9a', // Unlimited
+    color2: '#57c8bf', // Unlimited
+    lang: 'TR'
+});</code>
+</pre>
+
+
+				                            </div>
+				                            <div class="col-sm-4">
+
+				                                <div id="yourId" class="jalendar">
+				                                    <div class="added-event" data-date="19-9-2015" data-title="WWDC 13 on San Francisco, LA"></div>
+				                                    <div class="added-event" data-date="17-8-2015" data-title="Hazal ve Bora Nikah Töreni"></div>
+				                                    <div class="added-event" data-date="17-8-2015" data-title="Hazal ve Bora Nikah Töreni"></div>
+				                                    <div class="added-event" data-date="16-8-2015" data-title="Hazal ve Bora Nikah Töreni at 21"></div>
+				                                    <div class="added-event" data-date="1-10-2015" data-title="Tarkan İstanbul Concert on Harbiye Açık Hava Tiyatrosu"></div>
+				                                </div>
+
+				                            </div>
+				                        </div>
+
+				                        <hr />
+
+				                        <div class="row">
+				                            <div class="col-sm-8">
+
+				                                <h1>Jalendar <small>Event <u>with Input</u></small></h1>
+
+				                                <pre class="html">
+				                                    <code>&lt;div class="jalendar-input"&gt;
+	&lt;input type="text" placeholder="Select Event Date" readonly /&gt;
+	&lt;div id="yourIdInput" class="jalendar"&gt;
+	    &lt;div class="added-event" data-date="19-9-2015" data-title="WWDC 13 on San Francisco, LA"&gt;&lt;/div&gt;
+	    ...
+	    &lt;div class="added-event" data-date="1-10-2015" data-title="Tarkan İstanbul Concert on Harbiye Açık Hava Tiyatrosu"&gt;&lt;/div&gt;
+	&lt;/div&gt;
+&lt;/div&gt;</code>
+</pre>
+
+				                                <pre class="js">
+				                                    <code>$('#yourId').jalendar({
+    color: '#577e9a', // Unlimited
+    color2: '#57c8bf', // Unlimited
+    lang: 'TR'
+});</code>
+</pre>
+				                            </div>
+				                            <div class="col-sm-4">
+												
+												<div class="jalendar-input">
+													<input type="text" placeholder="Select Event Date" readonly />
+					                                <div id="yourIdInput" class="jalendar">
+					                                    <div class="added-event" data-date="19-9-2015" data-title="WWDC 13 on San Francisco, LA"></div>
+					                                    <div class="added-event" data-date="17-8-2015" data-title="Hazal ve Bora Nikah Töreni"></div>
+					                                    <div class="added-event" data-date="17-8-2015" data-title="Hazal ve Bora Nikah Töreni"></div>
+					                                    <div class="added-event" data-date="16-8-2015" data-title="Hazal ve Bora Nikah Töreni at 21"></div>
+					                                    <div class="added-event" data-date="1-10-2015" data-title="Tarkan İstanbul Concert on Harbiye Açık Hava Tiyatrosu"></div>
+					                                </div>
+					                            </div>
+
+				                            </div>
+				                        </div>
+				                    </div>
+
+				            </div>
+				            <div class="tab-content">
+				                
+				                <div class="container">
+
+				                    <div class="row">
+
+				                        <div class="col-sm-8">
+
+				                            <h1>Jalendar <small>Linker</small></h1>
+
+				                            <pre class="html">
+				                                <code>&lt;div id="yourId2" class="jalendar"&gt;&lt;/div&gt;</code>
+</pre>
+				                            
+				                            <pre class="js">
+				                                <code>$('#yourId2').jalendar({
+    color: '#fff',
+    type: 'linker',
+    customUrl: 'http://yourcustomurl.com/yourcustomurl?var=',
+    dateType: 'mm-dd-yyyy',
+    titleColor: '#666',
+    weekColor: '#EA5C49',
+    todayColor: '#EA5C49'
+});</code>
+</pre>
+				                        </div>
+				                        <div class="col-sm-4">
+				                            <div id="yourId2" class="jalendar"></div>
+				                        </div>
+
+				                    </div>
+				                </div>
+
+				            </div>
+				            <div class="tab-content">
+				                
+				                <div class="container">
+
+				                    <div class="row">
+				                    
+				                        <div class="col-sm-8">
+
+				                            <h1>Jalendar <small>Selector</small></h1>
+
+				                            <pre class="html">
+				                                <code>&lt;div id="yourId3" class="jalendar"&gt;&lt;/div&gt;</code>
+</pre>
+
+				                            <pre class="js">
+				                                <code>$('#yourId3').jalendar({
+    type: 'selector',
+    dateType: 'yyyy-mm-dd'
+});</code>
+</pre>
+				                        </div>
+				                        <div class="col-sm-4">
+				                            <div id="yourId3" class="jalendar"></div>
+				                        </div>
+
+				                    </div>
+
+				                    <hr />
+
+				                    <div class="row">
+				                    	<div class="col-sm-8">
+				                    		<h1>Jalendar <small>Selector <u>with Input</u></small></h1>
+
+											<pre class="html">
+				                                <code>&lt;div class="jalendar-input"&gt;
+	&lt;input type="text" readonly /&gt;
+	&lt;div id="yourId3Input" class="jalendar"&gt;&lt;/div&gt;
+&lt;/div&gt;</code>
+</pre>
+
+				                            <pre class="js">
+				                                <code>$('#yourId3Input').jalendar({
+    type: 'selector',
+    dateType: 'yyyy-mm-dd'
+});</code>
+</pre>
+				                    	</div>
+				                    	<div class="col-sm-4">
+				                    		<div class="jalendar-input">
+				                    			<input type="text" placeholder="Select Date" readonly />
+				                    			<div id="yourId3Input" class="jalendar"></div>
+				                    		</div>
+				                    	</div>
+				                    </div>
+
+				                </div>
+
+				            </div>
+
+				            <div class="tab-content">
+				                
+				                <div class="container">
+
+				                    <div class="row">
+				                    
+				                        <div class="col-sm-8">
+
+				                            <h1>Jalendar <small>Range</small></h1>
+
+				                            <pre class="html">
+				                                <code>&lt;div id="yourId4" class="jalendar"&gt;&lt;/div&gt;</code>
+</pre>
+
+				                            <pre class="js">
+				                                <code>$('#yourId4').jalendar({
+    color: '#37C4A7',
+    type: 'range',
+    lang: 'TR'
+});</code>
+</pre>
+				                        </div>
+				                        <div class="col-sm-4">
+				                            <div id="yourId4" class="jalendar"></div>
+				                        </div>
+
+				                    </div>
+
+				                    <hr />
+
+				                    <div class="row">
+				                    	<div class="col-sm-8">
+				                    		<h1>Jalendar <small>Range <u>with Input</u></small></h1>
+
+				                    		<pre class="html">
+				                                <code>&lt;div class="jalendar-input"&gt;
+	&lt;input type="text" readonly /&gt;
+	&lt;div id="yourId4Input" class="jalendar"&gt;&lt;/div&gt;
+&lt;/div&gt;</code>
+</pre>
+
+				                            <pre class="js">
+				                                <code>$('#yourId4Input').jalendar({
+    color: '#37C4A7',
+    type: 'range',
+    lang: 'TR'
+});</code>
+</pre>
+				                    	</div>
+				                    	<div class="col-sm-4">
+				                    		<div class="jalendar-input">
+				                    			<input type="text" placeholder="Select Date Range" />
+				                    			<div id="yourId4Input" class="jalendar"></div>
+				                    		</div>
+				                    	</div>
+				                    </div>
+
+				                </div>
+
+				            </div>
+				        </div>
+				    </div>
+				
+    			</div>
+
+    		</div>
+    		
+    	</div>
+
+	</div>
+
+<div class="footer">
+    <div class="container">
+        <div class="row">
+        
+            <div class="sharing">
+                <div>
+                    <a href="https://twitter.com/bqra" class="twitter-follow-button" data-show-count="false">Follow @bqra</a> <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+                </div>
+                <div>
+                    <a href="https://twitter.com/share" class="twitter-share-button" data-text="Check out this amazing jquery calendar plugin" data-via="bqra" data-hashtags="jalendar">Tweet</a> <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+                </div>
+                <div>
+                    <div class="fb-follow" data-layout="button_count" data-href="http://www.facebook.com/bora.dan87"></div>
+                </div>
+                <div>
+                    <!-- Place this tag where you want the button to render. -->
+                    <a class="github-button" href="https://github.com/bqra" data-count-href="/bqra/followers" data-count-api="/users/bqra#followers" data-count-aria-label="# followers on GitHub" aria-label="Follow @bqra on GitHub">Follow @bqra</a>
+                </div>
+            </div>
+            <p>
+                Designed and built by Bora Dan. Maintained by Pikselmatik.com <br />
+                Codes are licensed under Codecanyon.net <br />
+                You can download it from codecanyon. Currently Version 1.0
+            </p>
+            
+        </div>
+
+    </div>
+</div>
+
+
+<script async defer id="github-bjs" src="https://buttons.github.io/buttons.js"></script>
+	
+</body>
+</html>

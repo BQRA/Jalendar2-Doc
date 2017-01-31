@@ -1,0 +1,337 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Jalendar2 - Premium Calendar Tool</title> 
+
+<link rel="stylesheet" href="style/bootstrap.min.css">
+<link rel="stylesheet" href="style/documentation.css">
+
+<!-- Jalendar files -->
+<link rel="stylesheet" href="jalendar/style/jalendar.css" type="text/css" />
+<script type="text/javascript" src="jalendar/js/jquery-1.11.3.min.js"></script><!--jQuery-->
+<script type="text/javascript" src="jalendar/js/jalendar.min.js"></script>
+<!-- Jalendar files #end -->
+
+<link rel="stylesheet" href="style/default.min.css" media="screen" type="text/css">
+<script src="js/highlight.pack.js"></script>
+<script src="js/documentation.js"></script>
+
+<script type="text/javascript">
+$(function () {
+
+    $('#yourId').jalendar({
+        customDay: '11/01/2015',
+        color: '#577e9a', // Unlimited Colors
+        color2: '#57c8bf', // Unlimited Colors
+        lang: 'TR',
+        sundayStart: true
+    });
+
+    $('#yourId2').jalendar({
+        color: '#fff',
+        type: 'linker',
+        customUrl: 'http://yourcustomurl.com/yourcustomurl?var=',
+        dateType: 'mm-dd-yyyy',
+        titleColor: '#333',
+        weekColor: '#EA5C49',
+        todayColor: '#EA5C49'
+    });
+
+    $('#yourId3').jalendar({
+        type: 'selector',
+        dateType: 'yyyy-mm-dd',
+        dayWithZero: false,
+        done: function() {
+            alert( $('#yourId3 input.data1').val() );
+        }
+    });
+
+    $('#yourId4').jalendar({
+        color: '#52D3D5',
+        color2: '#52D5A4',
+        dayWithZero: false,
+        selectingBeforeToday: true,
+        type: 'range',
+        lang: 'TR',
+        done: function() {
+            alert( $('#yourId4 input.data1').val() + ' / ' + $('#yourId4 input.data2').val() );
+        }
+    });
+});
+</script>
+
+</head>
+
+<body>
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/tr_TR/sdk.js#xfbml=1&version=v2.4";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+<div class="container-fluid">
+
+    <div class="row header">
+
+        <ul class="nav">
+            <li><a href="#" class="selected">Getting Started</a></li>    
+            <li><a href="installation.html">Installation &amp; Documentation</a></li>    
+            <li><a href="changelog.html">Change-log (v1.5)</a></li>    
+            <li><a href="http://codecanyon.net/item/jalendar2-calendar-pack-event-range-and-more/12662442?ref=bqra">Purchase and Download</a></li>   
+            <li><a href="mailto:bora_dan@hotmail.com?Subject=Jalendar2 Support">Support</a></li> 
+        </ul>
+
+        <div class="container">
+
+            <div class="logo text-center"><img src="img/logo.png" alt="" /></div>
+            <p class="mini-desc text-center">
+                Jalendar is a premium calendar plugin pack<br /> that created with jquery javascript library. <br />
+                It supported <b>13</b> languages, <br /><b>4</b> calendar types and more...
+            </p>
+
+        </div>
+    </div>
+
+    <div class="row features">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="title">4 different options</div>
+                    <p>
+                        Jalendar offers you <b>4</b> different calendar options. You can list your events, you can link to days, you can use Jalendar Selector for date selecting and you can use Jalendar Range for range selecting on calendar.
+                    </p>
+                </div>
+                <div class="col-md-4">
+                    <div class="title">Designing options</div>
+                    <p>
+                        You can set multiple and unlimited colors to calendar's background, day colors, week colors and year color.
+                    </p>
+                </div>
+                <div class="col-md-4">
+                    <div class="title">A lot of properties</div>
+                    <p>
+                        You can use unlimited colors, <br /><b>13</b> languages, date types. And you can change <b>week start day</b>. There is more option with plugin's properties.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+        
+    <div class="row demos">
+
+        <div class="see-demos">See the Demos &nbsp; <i class="fa fa-caret-down"></i></div>
+
+        <div class="tab" data-name="a">
+            <a href="javascript:;" class="selected">Jalendar <small>Event</small></a>
+            <a href="javascript:;">Jalendar <small>Linker</small></a>
+            <a href="javascript:;">Jalendar <small>Selector</small></a>
+            <a href="javascript:;">Jalendar <small>Range</small></a>
+        </div>
+
+        <div class="tab-container" data-name="a">
+            
+            <div class="tab-content selected">
+
+                    <div class="container">
+
+                        <div class="row">
+                            <div class="col-sm-8">
+
+                                <h1>Jalendar <small>Event</small></h1>
+
+                                <pre class="html">
+                                    <code>&lt;div id="yourId" class="jalendar"&gt;
+    &lt;div class="added-event" data-date="19-11-2015" data-link="http://google.com" data-title="WWDC 13 on San Francisco, LA"&gt;&lt;/div&gt;
+
+    &lt;div class="added-event" data-date="19-11-2015" data-title="Hazal ve Bora Nikah Töreni"&gt;&lt;/div&gt;
+
+    &lt;div class="added-event" data-date="10-12-2015" data-title="Tarkan İstanbul Concert on Harbiye Açık Hava Tiyatrosu"&gt;&lt;/div&gt;
+&lt;/div&gt;</code>
+</pre>
+
+                                <pre class="js">
+                                    <code>$('#yourId').jalendar({
+    customDay: '01/11/2015',
+    color: '#577e9a', // Unlimited
+    color2: '#57c8bf', // Unlimited
+    lang: 'TR',
+    sundayStart: true
+});</code>
+</pre>
+
+
+                            </div>
+                            <div class="col-sm-4">
+
+                                <div id="yourId" class="jalendar">
+                                    <div class="added-event" data-link="http://pikselmatik.com" data-date="19-11-2015" data-title="WWDC 13 on San Francisco, LA"></div>
+                                    <div class="added-event" data-link="http://pikselmatik.com" data-date="19-11-2015" data-title="Hazal ve Bora Nikah Töreni"></div>
+                                    <div class="added-event" data-link="http://pikselmatik.com" data-date="21-11-2015" data-title="Hazal ve Bora Nikah Töreni"></div>
+                                    <div class="added-event" data-date="22-11-2015" data-title="Hazal ve Bora Nikah Töreni at 21"></div>
+                                    <div class="added-event" data-link="http://pikselmatik.com" data-date="10-12-2015" data-title="Tarkan İstanbul Concert on Harbiye Açık Hava Tiyatrosu"></div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+            </div>
+            <div class="tab-content">
+                
+                <div class="container">
+
+                    <div class="row">
+
+                        <div class="col-sm-8">
+
+                            <h1>Jalendar <small>Linker</small></h1>
+
+                            <pre class="html">
+                                <code>&lt;div id="yourId2" class="jalendar"&gt;&lt;/div&gt;</code>
+</pre>
+                            
+                            <pre class="js">
+                                <code>$('#yourId2').jalendar({
+    color: '#fff',
+    type: 'linker',
+    customUrl: 'http://yourcustomurl.com/yourcustomurl?var=',
+    dateType: 'mm-dd-yyyy',
+    titleColor: '#666',
+    weekColor: '#EA5C49',
+    todayColor: '#EA5C49'
+});</code>
+</pre>
+                        </div>
+                        <div class="col-sm-4">
+                            <div id="yourId2" class="jalendar"></div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+            <div class="tab-content">
+                
+                <div class="container">
+
+                    <div class="row">
+                    
+                        <div class="col-sm-8">
+
+                            <h1>Jalendar <small>Selector</small></h1>
+
+                            <pre class="html">
+                                <code>&lt;div id="yourId3" class="jalendar"&gt;&lt;/div&gt;</code>
+</pre>
+
+                            <pre class="js">
+                                <code>$('#yourId3').jalendar({
+    type: 'selector',
+    dateType: 'yyyy-mm-dd',
+    done: function() {
+        alert( $('#yourId3 input.data1').val() );
+    }
+});</code>
+</pre>
+                        </div>
+                        <div class="col-sm-4">
+                            <div id="yourId3" class="jalendar"></div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="tab-content">
+                
+                <div class="container">
+
+                    <div class="row">
+                    
+                        <div class="col-sm-8">
+
+                            <h1>Jalendar <small>Range</small></h1>
+
+                            <pre class="html">
+                                <code>&lt;div id="yourId4" class="jalendar"&gt;&lt;/div&gt;</code>
+</pre>
+
+                            <pre>
+                                <code>$('#yourId4').jalendar({
+    color: '#37C4A7',
+    type: 'range',
+    lang: 'TR',
+    selectingBeforeToday: true,
+    done: function() {
+        alert($('#yourId4 input.data1').val() + ' / ' + $('#yourId4 input.data2').val())
+    }
+});</code>
+</pre>
+                        </div>
+                        <div class="col-sm-4">
+                            <div id="yourId4" class="jalendar"></div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="row continue">
+        <div class="container text-center">
+            <a href="installation.html" class="button">Installation &amp; Documentation <i class="fa fa-long-arrow-right"></i></a>
+        </div>
+    </div>
+</div>
+
+<div class="footer">
+    <div class="container">
+        <div class="row">
+        
+            <div class="sharing">
+                <div>
+                    <a href="https://twitter.com/bqra" class="twitter-follow-button" data-show-count="false">Follow @bqra</a> <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+                </div>
+                <div>
+                    <a href="https://twitter.com/share" class="twitter-share-button" data-text="Check out this amazing jquery calendar plugin" data-via="bqra" data-hashtags="jalendar">Tweet</a> <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+                </div>
+                <div>
+                    <div class="fb-follow" data-layout="button_count" data-href="http://www.facebook.com/bora.dan87"></div>
+                </div>
+                <div>
+                    <!-- Place this tag where you want the button to render. -->
+                    <a class="github-button" href="https://github.com/bqra" data-count-href="/bqra/followers" data-count-api="/users/bqra#followers" data-count-aria-label="# followers on GitHub" aria-label="Follow @bqra on GitHub">Follow @bqra</a>
+                </div>
+            </div>
+            <p>
+                Designed and built by Bora Dan. Maintained by Pikselmatik.com <br />
+                Codes are licensed under Codecanyon.net <br />
+                You can download it from codecanyon. Currently Version 1.0
+            </p>
+            
+        </div>
+
+    </div>
+</div>
+
+
+<script async defer id="github-bjs" src="https://buttons.github.io/buttons.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,401 @@
+////////////////////////////////
+// Author: Bora DAN — http://codecanyon.net/user/bqra
+// 20 September 2016
+// E-mail: bora_dan@hotmail.com
+// Twitter: http://twitter.com/bqra
+// Dribbble: http://dribbble.com/bqra
+// Website: http://pikselmatik.com
+// Version: 1.5
+////////////////////////////////
+
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,700&subset=latin,latin-ext);
+@import url(http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css);
+
+.gradient (@startColor: #eee, @endColor: white) {
+    background-color: @startColor;
+    background: -webkit-gradient(linear, left top, left bottom, from(@startColor), to(@endColor));
+    background: -webkit-linear-gradient(top, @startColor, @endColor);
+    background: -moz-linear-gradient(top, @startColor, @endColor);
+    background: -ms-linear-gradient(top, @startColor, @endColor);
+    background: -o-linear-gradient(top, @startColor, @endColor);
+}
+
+.transition(@arguments) {
+    -webkit-transition: @arguments;
+    -moz-transition: @arguments;
+    -ms-transition: @arguments;
+    -o-transition: @arguments;
+    transition: @arguments;
+}
+
+.jalendar-input {
+    position: relative;
+    width: 280px;
+    display: inline-block;
+    input {
+        padding: 8px 12px;
+        width: 100%;
+        box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        &.selected {
+            & + .jalendar {
+                opacity: 1;
+                visibility: visible;
+                z-index: 999999;
+            }
+        }
+    }
+    .jalendar {
+        .transition(all .2s);
+        opacity: 0;
+        visibility: hidden;
+        position: absolute;
+        left: 0;
+        top: 34px;
+    }
+}
+
+.jalendar {
+    position: relative;
+    width: 280px;
+    margin: 10px auto;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    display: inline-block;
+    .clear {
+        clear: both;
+    }
+    .left {
+        float: left;
+    }
+    .added-event {
+        display: none;
+    }
+    .jalendar-container {
+        display: inline-block;
+        width: 100%;
+        .jalendar-pages {
+            position: relative;
+            border-radius: 3px;
+            display: inline-block;
+            width: 100%;
+            padding: 20px;
+            .gradient(#207cd1, #33c1ea);
+            box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            .transition(all 1s cubic-bezier(.45,.24,.36,1.31));
+            & > .header {
+                text-align: center;
+                position: relative;
+                overflow: hidden;
+                padding: 0;
+                background-color: transparent !important;
+                h1 {
+                    margin: 10px 0 30px 0;
+                    padding: 0;
+                    display: inline-block;
+                    font: 700 16px "Open Sans", Arial, Helvetica, Geneva, sans-serif;
+                    text-transform: uppercase;
+                    color: #fff;
+                    position: relative;
+                    border: none;
+                    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.3), 0 1px 0 rgba(0, 0, 0, 0.05);
+                }
+                h2 {
+                    display: inline-block;
+                    width: 14%;
+                    padding: 0;
+                    text-indent: 1px;
+                    text-align: center;
+                    margin: 0;
+                    font: 700 10px "Open Sans", Arial, Helvetica, Geneva, sans-serif;
+                    color: rgba(255, 255, 255, 0.5);
+                    text-transform: uppercase;
+                }
+                .day-names {
+                    overflow: hidden;
+                    text-align: center;
+                    font-size: 0;
+                }
+
+                .prv-m, 
+                .nxt-m {
+                    text-decoration: none;
+                    position: absolute;
+                    display: inline-block;
+                    top: 4px;
+                    cursor: pointer;
+                    color: #fff;
+                    i {
+                        font-size: 32px;
+                    }
+                }
+                .prv-m {
+                    left: 10px;
+                }
+                .nxt-m {
+                    right: 10px;
+                }
+
+            }
+            .total-bar {
+                position: absolute;
+                right: -15px;
+                top: -9px;
+                border-radius: 20px;
+                width: 15px;
+                height: 14px;
+                z-index: 99;
+                display: inline-block;
+                padding: 1px 0 0 0;
+                text-align: center;
+                color: #fff;
+                background-color: #e25757;
+                font: 400 9px "Open Sans", Arial, Helvetica, Geneva, sans-serif;
+                text-shadow: none;
+            }
+
+            .days {
+                margin: 10px 0 0 0;
+                font-size: 0;
+                text-align: center;
+                overflow: hidden;
+                .day {
+                    display: inline-block;
+                    width: 14.2%;
+                    height: 35px;
+                    box-sizing: border-box;
+                    -moz-box-sizing: border-box;
+                    position: relative;
+                    float: left;
+                    color: rgba(0, 0, 0, 0.2);
+                    font: 700 13px "Open Sans", "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+                    &.this-month {
+                        &.disable-selecting {
+                            cursor: not-allowed !important;
+                            span {
+                                opacity: .7 !important;
+                                cursor: not-allowed !important;
+                            }
+                        }
+                        span {
+                            color: rgba(0, 0, 0, 0.5);
+                            cursor: pointer;
+                            opacity: 1;
+                            &:hover {
+                                background-color: rgba(0, 0, 0, 0.1);
+                                color: #333 !important;
+                            }
+                        }
+                        &.selected {
+                            span {
+                                background-color: rgba(255, 255, 255, 1);
+                                color: #333;
+                            }
+                        }
+                    }
+                    span {
+                        box-sizing: border-box;
+                        -moz-box-sizing: border-box;
+                        border-radius: 50px;
+                        width: 30px;
+                        height: 30px;
+                        margin: 3px 0 0 0;
+                        padding: 6px 0 0 0;
+                        display: inline-block;
+                        position: relative;
+                        opacity: .7;
+                        a {
+                            text-decoration: none;
+                            display: inline-block;
+                            width: 100%;
+                            color: rgba(0, 0, 0, 0.6);
+                            &:hover {
+                                color: rgba(0, 0, 0, 0.9);
+                            }
+                        }
+                    }
+                    &.today {
+                        span {
+                            color: rgba(255, 255, 255, 0.8);
+                            background-color: rgba(0, 0, 0, 0.1);
+                            border-radius: 50px;
+                            a {
+                                color: rgba(255, 255, 255, 0.8);
+                            }
+                        }
+                    }
+                    &.have-event {
+                        span {
+                            &:before {
+                                content: '';
+                                display: inline-block;
+                                width: 4px;
+                                height: 4px;
+                                border-radius: 8px;
+                                background-color: #e25757;
+                                position: absolute;
+                                right: 1px;
+                                top: 5px;
+                            }
+                        }
+                    }
+                    & > .event-single {
+                        display: none;
+                    }
+
+                    &.first-range {
+                        border-radius: 6px 0 0 6px;
+                        background-color: rgba(0, 0, 0, 0.3);
+                        // box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.2);
+                        position: relative;
+                        &:after {
+                            content: '';
+                            display: inline-block;
+                            position: absolute;
+                            right: -10px;
+                            top: 50%;
+                            margin-top: -5px;
+                            width: 0;
+                            height: 0;
+                            border: 5px solid transparent;
+                            border-left: 5px solid rgba(0, 0, 0, 0.4);
+                        }
+                    }
+                    &.range {
+                        background-color: rgba(0, 0, 0, 0.1);
+                    }
+                    &.last-range {
+                        border-radius: 0 6px 6px 0;
+                        background-color: rgba(0, 0, 0, 0.3);
+                        // box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.2);
+                        &:after {
+                            content: '';
+                            display: inline-block;
+                            position: absolute;
+                            left: -10px;
+                            top: 50%;
+                            margin-top: -5px;
+                            width: 0;
+                            height: 0;
+                            border: 5px solid transparent;
+                            border-right: 5px solid rgba(0, 0, 0, 0.4);
+                        }
+                    }
+                    &.first-range,
+                    &.range,
+                    &.last-range {
+                        span {
+                            &:hover {
+                                background-color: transparent;
+                            }
+                        }
+                    }
+
+                    /* inside .day */
+                }
+            }
+            
+            .add-event {
+                height: 0;
+                overflow: hidden;
+                margin: 0 -20px;
+                text-align: left;
+                &.selected {
+                    margin-bottom: -20px;
+                    .close-button {
+                        display: block;
+                    }
+                }
+                .transition(all .3s cubic-bezier(.45,.24,.36,1.31));
+                .close-button {
+                    cursor: pointer;
+                    margin: 15px 0 -20px 0;
+                    padding: 10px 0;
+                    font: 700 10px 'Open Sans', 'Helvetica Neue', Arial;
+                    color: #fff;
+                    background-color: rgba(0, 0, 0, 0.1);
+                    text-align: center;
+                    border-radius: 0 0 3px 3px;
+                    position: absolute;
+                    bottom: 20px;
+                    width: 100%;
+                    display: none;
+                    &:hover {
+                        background-color: rgba(0, 0, 0, 0.2);
+                    }
+                }
+                .events {
+                    position: relative;
+                    margin: 10px 0 0 0;
+                    padding: 0 20px;
+                    h3 {
+                        font: 700 11px "Open Sans", "Helvetica Neue", Arial;
+                        color: rgba(255, 255, 255, 0.7);
+                        text-transform: uppercase;
+                        text-align: center;
+                        margin: 0;
+                        padding: 0; 
+                        span {
+
+                        }
+                    }
+                    .events-list {
+                        .event-single {
+                            margin: 14px 0 0 0;
+                            display: inline-block;
+                            width: 100%;
+                            position: relative;
+                            padding: 0 0 14px 0;
+                            &:last-child {
+                                padding-bottom: 0;
+                                &:before {
+                                    display: none;
+                                }
+                            }
+                            &:before {
+                                content: '';
+                                display: inline-block;
+                                position: absolute;
+                                bottom: 0;
+                                right: -20px;
+                                width: 100%;
+                                height: 1px;
+                                background-color: rgba(255, 255, 255, 0.2);
+                            }
+                            a {
+                                padding: 0;
+                                font: 400 12px "Open Sans", 'Helvetica Neue', Arial;
+                                margin: 0;
+                                color: #fff;
+                                display: inline-block;
+                                position: relative;
+                                padding: 0 0 0 20px;
+                                text-decoration: none;
+                                &:before {
+                                    content: '';
+                                    display: inline-block;
+                                    position: absolute;
+                                    width: 8px;
+                                    height: 8px;
+                                    top: 6px;
+                                    left: 0;
+                                    background-color: rgba(0, 0, 0, 0.4);
+                                    border-radius: 12px;
+                                }
+                                a {
+                                    color: #333;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            /* inside .jalendar-pages */
+        }
+    }
+}
+
