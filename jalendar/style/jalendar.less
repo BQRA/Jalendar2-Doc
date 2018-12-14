@@ -1,16 +1,16 @@
 ////////////////////////////////
 // Author: Bora DAN — http://codecanyon.net/user/bqra
-// 20 September 2016
+// 14 December 2018
 // E-mail: bora_dan@hotmail.com
 // Twitter: http://twitter.com/bqra
 // Dribbble: http://dribbble.com/bqra
 // Website: http://pikselmatik.com
-// Version: 1.5
+// Version: 1.7
 ////////////////////////////////
 
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:400,700&subset=latin,latin-ext);
 @import url(http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css);
-
+ 
 .gradient (@startColor: #eee, @endColor: white) {
     background-color: @startColor;
     background: -webkit-gradient(linear, left top, left bottom, from(@startColor), to(@endColor));
@@ -241,6 +241,27 @@
                                 top: 5px;
                             }
                         }
+                        &.holiday {
+                            span {
+                                &:before {
+                                    background-color: #4F5D75;
+                                }
+                            }
+                        }
+                        &.task {
+                            span {
+                                &:before {
+                                    background-color: #FFE787;
+                                }
+                            }
+                        }
+                        &.event {
+                            span {
+                                &:before {
+                                    background-color: #e25757;
+                                }
+                            }
+                        }
                     }
                     & > .event-single {
                         display: none;
@@ -384,6 +405,21 @@
                                     left: 0;
                                     background-color: rgba(0, 0, 0, 0.4);
                                     border-radius: 12px;
+                                }
+                                &.holiday {
+                                    &:before {
+                                        background-color: #4F5D75;
+                                    }
+                                }
+                                &.task {
+                                    &:before {
+                                        background-color: #FFE787;
+                                    }
+                                }
+                                &.event {
+                                    &:before {
+                                        background-color: #e25757;
+                                    }
                                 }
                                 a {
                                     color: #333;

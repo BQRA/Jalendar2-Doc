@@ -11,7 +11,7 @@
 <link rel="stylesheet" href="style/documentation.css">
 
 <!-- Jalendar files -->
-<link rel="stylesheet" href="jalendar/style/jalendar.css" type="text/css" />
+<link rel="stylesheet" href="jalendar/style/jalendar.min.css" type="text/css" />
 <script type="text/javascript" src="jalendar/js/jquery-1.11.3.min.js"></script><!--jQuery-->
 <script type="text/javascript" src="jalendar/js/jalendar.min.js"></script>
 <!-- Jalendar files #end -->
@@ -94,7 +94,7 @@ $(function () {
 	        <ul class="nav">
 	            <li><a href="index.html">Getting Started</a></li>    
 	            <li><a href="#" class="selected">Installation &amp; Documentation</a></li>  
-	            <li><a href="changelog.html">Change-log (v1.6)</a></li>      
+	            <li><a href="changelog.html">Change-log (v1.7)</a></li>      
 	            <li><a href="http://codecanyon.net/item/jalendar2-calendar-pack-event-range-and-more/12662442?ref=bqra">Purchase and Download</a></li>  
 	            <li><a href="mailto:bora_dan@hotmail.com?Subject=Jalendar2 Support">Support</a></li>   
 	        </ul>
@@ -271,6 +271,9 @@ todayColor: 	// Today color have unlimited option
 <code>
 &lt;div id="yourId" class="jalendar"&gt;
     &lt;div class="added-event" 
+    	data-type="holiday"
+    	data-type="task" 
+    	data-type="event" (default)
     	data-link="http://pikselmatik.com" 
     	data-date="19-11-2015" 
     	data-title="WWDC 13 on San Francisco, LA"&gt;
@@ -581,7 +584,7 @@ You can change width property with:
             <p>
                 Designed and built by Bora Dan. Maintained by Pikselmatik.com <br />
                 Codes are licensed under Codecanyon.net <br />
-                You can download it from codecanyon. Currently Version 1.6
+                You can download it from codecanyon. Currently Version 1.7
             </p>
             
         </div>
